@@ -32,14 +32,14 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install
-    continue-on-error: true
+      continue-on-error: true
     - name: Step 1 - set a variable with value
-          run: |
+      run: |
             my_variable = "hello from step 1!"
             echo "MY_VAR=${my_variable}" >> GITHUB_ENV #writes the varibale to GITHUB_ENV
 
     - name: Step 2 - use variable with value from step1
-          run: |
+      run: |
             my_variable = "hello from step 1!"
             echo "Step 2 says: ${{ env.MY_VAR }}" #writes the varibale to GITHUB_ENV
          
